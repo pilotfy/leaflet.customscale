@@ -5,18 +5,15 @@ L.Control.ScaleNautic = L.Control.Scale.extend({
 
 	_addScales: function(options, className, container) {
 		L.Control.Scale.prototype._addScales.call(this, options, className, container);
-
-		var options = this.options;
-		if (options.nautic) {
-			this._nScale = L.DomUtil.create('div', className + '-line', container);
+		L.setOptions(options);
+		if (this.options.nautic) {
+			this._nScale = L.DomUtil.create('div', className, container);
 		}
 	},
 
-	_updateScales: function (options, maxMeters) {
-		L.Control.Scale.prototype._updateScales.call(this, options, maxMeters);
-
-		var options = this.options;
-		if (options.nautic && maxMeters) {
+	_updateScales: function (maxMeters) {
+		L.Control.Scale.prototype._updateScales.call(this, maxMeters);
+		if (this.options.nautic && maxMeters) {
 			this._updateNautic(maxMeters);
 		}
 	},
@@ -32,10 +29,10 @@ L.Control.ScaleNautic = L.Control.Scale.extend({
 		} else {
 			nm = this._getRoundNum(maxNm);
 		}
-		let label = nm + ' nm';
+		let label = nm + 'nm';
 
 		this._updateScale(this._nScale, label, nm / maxNm);
-	},
+	}
 });
 
 L.control.scalenautic = function (options) {
