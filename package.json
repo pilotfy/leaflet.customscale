@@ -1,0 +1,20 @@
+{
+  "name": "pilotfy-leaflet.customscale",
+  "version": "1.0.0",
+  "description": "Leaflet scale control in nautic miles (and / or custom units) =============================================================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilotfy/leaflet.customscale.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pilotfy/leaflet.customscale/issues"
+  },
+  "homepage": "https://github.com/pilotfy/leaflet.customscale#readme"
+}
