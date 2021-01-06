@@ -22,17 +22,19 @@ L.Control.ScaleNautic = L.Control.Scale.extend({
 	},
 
 	_updateNautic: function (maxMeters) {
-		var scale = this._nScale,
-			maxNauticalMiles = maxMeters / 1852, nauticalMiles;
+		const maxNm = maxMeters / 1852;
 
-		if(maxMeters >= 1852) {
-			nauticalMiles = L.Control.Scale.prototype._getRoundNum.call(this, maxNauticalMiles);
+		let nm;
+		if (maxMeters < 185) {
+			nm = Math.round(maxNm * 100) / 100;
+		} else if (maxMeters < 1852) {
+			nm = Math.round(maxNm * 10) / 10;
 		} else {
-			nauticalMiles = maxNauticalMiles > 0.1 ? Math.round(maxNauticalMiles * 10) / 10 : Math.round(maxNauticalMiles * 100) / 100;
+			nm = this._getRoundNum(maxNm);
 		}
+		let label = nm + ' nm';
 
-		scale.style.width = this._getScaleWidth(nauticalMiles / maxNauticalMiles) + 'px';
-		scale.innerHTML = nauticalMiles + ' nm';
+		this._updateScale(this._nScale, label, nm / maxNm);
 	},
 });
 
