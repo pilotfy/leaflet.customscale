@@ -29,7 +29,7 @@ L.Control.ScaleNautic = L.Control.Scale.extend({
 		} else {
 			nm = this._getRoundNum(maxNm);
 		}
-		let label = nm + 'nm';
+		let label = nm + ' nm';
 
 		this._updateScale(this._nScale, label, nm / maxNm);
 	}
